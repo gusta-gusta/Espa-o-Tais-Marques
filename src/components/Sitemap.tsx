@@ -23,6 +23,13 @@ interface SitemapProps {
 export const Sitemap: React.FC<SitemapProps> = ({ isPreview, hostname }) => {
   const routes: RouteItem[] = [
     {
+      path: '/home',
+      name: 'Página de Captura - Esteticista Taís Marques',
+      description: 'Página de captura profissional em São José dos Campos (SJC) com botões para WhatsApp, Sobre, Serviços, Resultados, Depoimentos e Agendamento.',
+      category: 'Landing Pages',
+      status: 'Ativo',
+    },
+    {
       path: '/lp-video',
       name: 'Landing Page Principal (VDSL / Vídeo)',
       description: 'Página de Vendas em Vídeo com estética de alta conversão, contador regressivo e prova social.',
@@ -93,11 +100,11 @@ export const Sitemap: React.FC<SitemapProps> = ({ isPreview, hostname }) => {
 
           <div className="flex items-center gap-3">
             <Link
-              to="/lp-video"
-              className="inline-flex items-center gap-2 bg-gradient-to-r from-rose-600 to-pink-600 hover:from-rose-700 hover:to-pink-700 text-white font-semibold px-5 py-3 rounded-xl shadow-lg shadow-rose-500/25 transition-all duration-200 transform hover:-translate-y-0.5 text-sm"
+              to="/home"
+              className="inline-flex items-center gap-2 bg-gradient-to-r from-[#E3007B] to-[#7B1FA2] hover:from-[#C2185B] hover:to-[#6A1B9A] text-white font-bold px-5 py-3 rounded-xl shadow-lg shadow-pink-500/25 transition-all duration-200 transform hover:-translate-y-0.5 text-sm"
             >
-              <PlaySquare className="w-4 h-4" />
-              <span>Ir para LP Vídeo</span>
+              <Globe className="w-4 h-4" />
+              <span>Acessar /home (Taís Marques)</span>
             </Link>
           </div>
         </div>

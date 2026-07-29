@@ -10,6 +10,7 @@ import { Sitemap } from './components/Sitemap';
 import { LpVideo } from './components/LpVideo';
 import { LpOferta } from './components/LpOferta';
 import { Obrigado } from './components/Obrigado';
+import { Home } from './components/Home';
 
 /**
  * Função utilitária para detecção de ambiente proxy de preview (Google IDX, Cloud Shell, Stackblitz, etc.)
@@ -53,12 +54,16 @@ export default function App() {
             isPreview ? (
               <Navigate to="/sitemap" replace />
             ) : (
-              <Navigate to="/lp-video" replace />
+              <Navigate to="/home" replace />
             )
           }
         />
 
         {/* Mapeamento de Rotas da Aplicação */}
+        <Route
+          path="/home"
+          element={<Home isPreview={isPreview} />}
+        />
         <Route
           path="/sitemap"
           element={<Sitemap isPreview={isPreview} hostname={hostname} />}
