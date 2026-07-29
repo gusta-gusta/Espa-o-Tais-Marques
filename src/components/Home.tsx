@@ -80,7 +80,7 @@ export const Home: React.FC<HomeProps> = ({ isPreview }) => {
       description: 'Procedimento completo com higienização, esfoliação e máscara hidratante.',
       tag: 'Essencial',
       benefits: ['Higienização profunda', 'Esfoliação renovadora', 'Máscara super hidratante'],
-      image: 'https://images.unsplash.com/photo-1512290900673-70023021074e?auto=format&fit=crop&w=800&q=80',
+      image: 'https://images.unsplash.com/photo-1616394584738-fc6e612e71b9?auto=format&fit=crop&w=800&q=80',
     },
     {
       id: 'peeling-diamante',
@@ -450,7 +450,7 @@ export const Home: React.FC<HomeProps> = ({ isPreview }) => {
                 </div>
 
                 {/* Floating Badge Left */}
-                <div className="absolute -bottom-4 -left-4 bg-white p-3.5 rounded-2xl shadow-xl border border-rose-100 flex items-center gap-3 animate-bounce" style={{ animationDuration: '3s' }}>
+                <div className="absolute -bottom-4 -left-4 translate-y-[50px] bg-white p-3.5 rounded-2xl shadow-xl border border-rose-100 flex items-center gap-3 animate-bounce" style={{ animationDuration: '3s' }}>
                   <div className="w-10 h-10 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center font-bold">
                     <Check className="w-6 h-6" />
                   </div>
@@ -464,42 +464,6 @@ export const Home: React.FC<HomeProps> = ({ isPreview }) => {
             </div>
 
           </div>
-        </div>
-      </section>
-
-      {/* Navigation Quick Buttons Bar */}
-      <section className="bg-white border-y border-rose-100 sticky top-20 z-40 shadow-xs py-3 px-4">
-        <div className="max-w-6xl mx-auto flex items-center justify-center gap-2 sm:gap-4 overflow-x-auto no-scrollbar text-xs sm:text-sm font-bold">
-          <a
-            href="#sobre"
-            className="px-4 py-2 rounded-full bg-rose-50 hover:bg-[#E3007B] text-[#E3007B] hover:text-white transition-colors whitespace-nowrap border border-rose-200"
-          >
-            01. Sobre a Taís
-          </a>
-          <a
-            href="#servicos"
-            className="px-4 py-2 rounded-full bg-rose-50 hover:bg-[#E3007B] text-[#E3007B] hover:text-white transition-colors whitespace-nowrap border border-rose-200"
-          >
-            02. Serviços
-          </a>
-          <a
-            href="#resultados"
-            className="px-4 py-2 rounded-full bg-rose-50 hover:bg-[#E3007B] text-[#E3007B] hover:text-white transition-colors whitespace-nowrap border border-rose-200"
-          >
-            03. Resultados
-          </a>
-          <a
-            href="#depoimentos"
-            className="px-4 py-2 rounded-full bg-rose-50 hover:bg-[#E3007B] text-[#E3007B] hover:text-white transition-colors whitespace-nowrap border border-rose-200"
-          >
-            04. Depoimentos
-          </a>
-          <a
-            href="#agendar"
-            className="px-4 py-2 rounded-full bg-[#E3007B] text-white hover:bg-[#C2185B] transition-colors whitespace-nowrap shadow-xs"
-          >
-            05. Agendar Agora
-          </a>
         </div>
       </section>
 
