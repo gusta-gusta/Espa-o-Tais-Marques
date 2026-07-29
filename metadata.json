@@ -1,0 +1,6 @@
+{
+  "name": "Landing Page - Roteamento Hibrido",
+  "description": "Landing Page de alta conversao com arquitetura de roteamento hibrido para ambientes cloud e producao",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
