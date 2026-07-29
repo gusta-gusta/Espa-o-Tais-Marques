@@ -26,6 +26,7 @@ import {
   Search
 } from 'lucide-react';
 import { Logo } from './Logo';
+import fotoTais from '../../assets/Tais-Perfil.webp';
 
 interface HomeProps {
   isPreview?: boolean;
@@ -39,74 +40,116 @@ export const Home: React.FC<HomeProps> = ({ isPreview }) => {
   const WHATSAPP_NUMBER = "5512997491441";
   const DEFAULT_MESSAGE = "Olá, vim pelo site e gostaria de mais informações.";
 
-  const getWhatsappLink = (customMessage?: string) => {
-    const text = customMessage || DEFAULT_MESSAGE;
-    return `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(text)}`;
-  };
+  const WHATSAPP_REDIRECT_URL = "https://api.whatsapp.com/send/?phone=5512997491441&text=Ol%C3%A1%20Ta%C3%ADs%2C%20vim%20pelo%20site%20e%20gostaria%20de%20mais%20informa%C3%A7%C3%B5es.&type=phone_number&app_absent=0";
 
   const handleWhatsappClick = (customMessage?: string) => {
-    window.open(getWhatsappLink(customMessage), '_blank', 'noopener,noreferrer');
+    if (customMessage) {
+      const encodedMsg = encodeURIComponent(customMessage);
+      window.open(`https://api.whatsapp.com/send/?phone=5512997491441&text=${encodedMsg}&type=phone_number&app_absent=0`, '_blank', 'noopener,noreferrer');
+    } else {
+      window.open(WHATSAPP_REDIRECT_URL, '_blank', 'noopener,noreferrer');
+    }
   };
+
+  const openingHours = [
+    { day: 'Terça-feira', hours: '09:00–18:00', status: 'open' },
+    { day: 'Quarta-feira', hours: '09:00–18:00', status: 'open' },
+    { day: 'Quinta-feira', hours: '09:00–18:00', status: 'open' },
+    { day: 'Sexta-feira', hours: '09:00–18:00', status: 'open' },
+    { day: 'Sábado', hours: '08:00–13:00', status: 'open' },
+    { day: 'Domingo', hours: 'Fechado', status: 'closed' },
+    { day: 'Segunda-feira', hours: 'Fechado', status: 'closed' },
+  ];
 
   const services = [
     {
       id: 'limpeza-pele',
-      title: 'Limpeza de Pele Profunda + Fototerapia',
+      title: 'Limpeza de Pele',
       category: 'facial',
-      subtitle: 'Remoção de cravos, desintoxicação e brilho natural',
-      description: 'Protocolo completo com vapor de ozônio, extração indolor, alta frequência e máscara hidroplástica calmante com LEDterapia.',
+      subtitle: 'Tratamentos profundos para saúde cutânea',
+      description: 'Tratamentos profundos com opções de vapor de ozônio e adição de peeling.',
       tag: 'Mais Pedido',
-      benefits: ['Elimina impurezas e cravos', 'Desobstrui os poros', 'Hidratação profunda imediata'],
+      benefits: ['Remoção de cravos e impurezas', 'Vapor de ozônio purificante', 'Opção com adição de peeling'],
       image: 'https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?auto=format&fit=crop&w=800&q=80',
     },
     {
-      id: 'rejuvenescimento',
-      title: 'Rejuvenescimento & Microagulhamento Gold',
+      id: 'hidratacao-facial',
+      title: 'Hidratação Facial',
       category: 'facial',
-      subtitle: 'Estímulo intenso de colágeno e rugas atenuadas',
-      description: 'Indução percutânea de colágeno com drug delivery de fatores de crescimento e ácido hialurônico para firmeza e viço da pele.',
-      tag: 'Alta Performance',
-      benefits: ['Atenua linhas de expressão', 'Clareia manchas e melasma', 'Aumenta firmeza da pele'],
+      subtitle: 'Nutrição e restauração do brilho natural',
+      description: 'Procedimento completo com higienização, esfoliação e máscara hidratante.',
+      tag: 'Essencial',
+      benefits: ['Higienização profunda', 'Esfoliação renovadora', 'Máscara super hidratante'],
       image: 'https://images.unsplash.com/photo-1512290900673-70023021074e?auto=format&fit=crop&w=800&q=80',
     },
     {
-      id: 'peeling-quimico',
-      title: 'Peeling Químico Renovador',
+      id: 'peeling-diamante',
+      title: 'Peeling de Diamante',
       category: 'facial',
-      subtitle: 'Uniformização do tom da pele e textura aveludada',
-      description: 'Ácidos de grau médico selecionados para renovação celular profunda, controle de oleosidade e redução de marcas de acne.',
-      tag: 'Efeito Glow',
-      benefits: ['Clareamento de hipercromias', 'Pele renovada e uniforme', 'Redução de poros dilatados'],
+      subtitle: 'Afinamento cutâneo e textura sedosa',
+      description: 'Focado em afinamento cutâneo, higienização e tonificação.',
+      tag: 'Pele Renovada',
+      benefits: ['Afinamento da camada córnea', 'Higienização profunda', 'Tonificação celular'],
       image: 'https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=800&q=80',
     },
     {
-      id: 'drenagem-linfatica',
-      title: 'Drenagem Linfática Método Exclusivo',
+      id: 'design-sobrancelhas',
+      title: 'Design de Sobrancelhas',
+      category: 'facial',
+      subtitle: 'Harmonização do olhar',
+      description: 'Opções que vão do design simples até a aplicação de tintura ou henna.',
+      tag: 'Olhar Marcante',
+      benefits: ['Mapeamento facial', 'Opção design simples', 'Aplicação de tintura ou henna'],
+      image: 'https://images.unsplash.com/photo-1560750588-73207b1ef5b8?auto=format&fit=crop&w=800&q=80',
+    },
+    {
+      id: 'micropigmentacao',
+      title: 'Micropigmentação',
+      category: 'facial',
+      subtitle: 'Definição natural e duradoura',
+      description: 'Procedimentos definitivos ou semidefinitivos para lábios e sobrancelhas.',
+      tag: 'Alta Precisão',
+      benefits: ['Para lábios e sobrancelhas', 'Efeito definitivo ou semidefinitivo', 'Cor e formato personalizados'],
+      image: 'https://images.unsplash.com/photo-1598256989800-fe5f95da9787?auto=format&fit=crop&w=800&q=80',
+    },
+    {
+      id: 'depilacao-facial',
+      title: 'Depilação Facial',
+      category: 'facial',
+      subtitle: 'Pele lisinha e delicada',
+      description: 'Remoção de pelos no rosto, abrangendo o método egípcio (linha), buço, nariz e opções voltadas para o público masculino.',
+      tag: 'Delicadeza & Precisão',
+      benefits: ['Método egípcio (linha)', 'Buço e nariz', 'Atendimento também ao público masculino'],
+      image: 'https://images.unsplash.com/photo-1516975080664-ed2fc6a32937?auto=format&fit=crop&w=800&q=80',
+    },
+    {
+      id: 'depilacao-corporal',
+      title: 'Depilação Corporal',
       category: 'corporal',
-      subtitle: 'Desinchamento imediato e contorno corporal',
-      description: 'Manobras suaves e ritmadas que eliminam retenção de líquidos, desintoxicam o organismo e estimulam a circulação.',
-      tag: 'Resultado Imediato',
-      benefits: ['Alívio do inchaço e sensação de peso', 'Combate a celulite', 'Melhora da circulação'],
+      subtitle: 'Cuidado completo para o corpo',
+      description: 'Remoção de pelos em diversas áreas (pernas completas ou meia perna, axilas, braços, áreas íntimas, glúteos e flancos).',
+      tag: 'Suavidade Garantida',
+      benefits: ['Pernas completas ou meia perna', 'Axilas e braços', 'Áreas íntimas, glúteos e flancos'],
       image: 'https://images.unsplash.com/photo-1544161515-4ab6ce6db874?auto=format&fit=crop&w=800&q=80',
     },
     {
-      id: 'massagem-modeladora',
-      title: 'Massagem Modeladora & Redutora',
+      id: 'drenagem-linfatica',
+      title: 'Drenagem Linfática',
       category: 'corporal',
-      subtitle: 'Ativação da circulação e remodelagem de curvas',
-      description: 'Técnica vigorosa associada a ativos lipolíticos de alta tecnologia para redução de medidas localizadas e firmeza tecidual.',
-      tag: 'Redução de Medidas',
-      benefits: ['Reduz gordura localizada', 'Melhora o contorno do corpo', 'Ativa o metabolismo local'],
+      subtitle: 'Alívio do inchaço e desintoxicação',
+      description: 'Tratamentos corporais para retenção de líquidos.',
+      tag: 'Desinchamento Imediato',
+      benefits: ['Eliminação de líquidos retidos', 'Melhora da circulação', ' Sensação leveza corporal'],
       image: 'https://images.unsplash.com/photo-1519823551278-64ac92734fb1?auto=format&fit=crop&w=800&q=80',
     },
     {
-      id: 'pos-operatorio',
-      title: 'Estética Pós-Operatória Especializada',
-      category: 'corporal',
-      subtitle: 'Recuperação segura e rápida pós-cirurgia plástica',
-      description: 'Cuidado atencioso para prevenção de fibroses, alívio de hematomas e cicatrização acelerada em lipoaspirações e mamoplastias.',
-      tag: 'Cuidado Especialista',
-      benefits: ['Previne fibroses e aderências', 'Acelera a cicatrização', 'Reduz dores e hematomas'],
+      id: 'botox-facial',
+      title: 'Botox Facial',
+      category: 'facial',
+      subtitle: 'Rejuvenescimento expressivo',
+      description: 'Aplicação completa (full face) para rejuvenescimento.',
+      tag: 'Rejuvenescimento',
+      benefits: ['Aplicação full face', 'Suavização de rugas de expressão', 'Aspecto jovem e descansado'],
       image: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=800&q=80',
     },
   ];
@@ -183,7 +226,7 @@ export const Home: React.FC<HomeProps> = ({ isPreview }) => {
           <div className="hidden sm:flex items-center gap-4 text-xs font-medium text-pink-100">
             <span className="flex items-center gap-1">
               <Clock className="w-3.5 h-3.5" />
-              Seg a Sáb: 08h às 19h
+              Ter a Sáb: 09:00 às 18:00 (Sáb até 13:00)
             </span>
             <button 
               onClick={() => handleWhatsappClick()}
@@ -307,13 +350,13 @@ export const Home: React.FC<HomeProps> = ({ isPreview }) => {
                 <span className="text-slate-300">•</span>
                 <span className="flex items-center gap-1 text-amber-500 font-bold">
                   <Star className="w-3.5 h-3.5 fill-amber-400 text-amber-400" />
-                  5.0 (Mais de 300 avaliações)
+                  Mais de 100 Avaliações no Google
                 </span>
               </div>
 
               {/* Main Headline */}
               <h1 className="text-3xl sm:text-5xl lg:text-5xl font-extrabold text-slate-900 tracking-tight leading-tight sm:leading-tight">
-                Sua Pele Mais Radiante, Jovem e Saudável em <span className="bg-gradient-to-r from-[#E3007B] via-[#C2185B] to-[#7B1FA2] bg-clip-text text-transparent">São José dos Campos</span>
+                Sua Pele Mais Radiante e Saudável em <span className="bg-gradient-to-r from-[#E3007B] via-[#C2185B] to-[#7B1FA2] bg-clip-text text-transparent">São José dos Campos</span>
               </h1>
 
               {/* Subtitle */}
@@ -373,9 +416,9 @@ export const Home: React.FC<HomeProps> = ({ isPreview }) => {
                 <div className="relative bg-white p-3 rounded-3xl border-2 border-rose-200/80 shadow-2xl overflow-hidden">
                   <div className="relative aspect-[4/5] rounded-2xl overflow-hidden bg-slate-100">
                     <img
-                      src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=800&q=80"
-                      alt="Esteticista Taís Marques em São José dos Campos"
-                      className="w-full h-full object-cover object-top hover:scale-105 transition-transform duration-500"
+                        src={fotoTais} 
+                        alt="Esteticista Taís Marques escrevendo em sua agenda no Espaço em SJC"
+                        className="w-full h-full object-cover object-top hover:scale-105 transition-transform duration-500"
                     />
 
                     {/* Gradient Overlay at Bottom */}
@@ -468,19 +511,20 @@ export const Home: React.FC<HomeProps> = ({ isPreview }) => {
             <div className="lg:col-span-5 order-2 lg:order-1">
               <div className="relative rounded-3xl overflow-hidden border-2 border-rose-200 shadow-2xl bg-rose-50">
                 <img 
-                  src="https://images.unsplash.com/photo-1512290900673-70023021074e?auto=format&fit=crop&w=800&q=80" 
-                  alt="Espaço Estética Taís Marques em São José dos Campos"
+                  src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&w=800&q=80" 
+                  alt="Espaço Físico Taís Marques em São José dos Campos"
                   className="w-full h-[450px] object-cover"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-transparent to-transparent"></div>
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-900/90 via-slate-900/30 to-transparent"></div>
                 
                 <div className="absolute bottom-6 left-6 right-6 text-white">
-                  <span className="text-xs font-bold uppercase tracking-wider text-rose-300 bg-black/40 px-3 py-1 rounded-full backdrop-blur-md">
+                  <span className="text-xs font-bold uppercase tracking-wider text-rose-300 bg-black/50 px-3 py-1 rounded-full backdrop-blur-md">
                     Espaço Físico em SJC
                   </span>
-                  <h3 className="text-xl font-bold mt-2">Ambiente Confortável e Higienizado</h3>
-                  <p className="text-xs text-rose-100 mt-1">
-                    Desenvolvido para oferecer máximo relaxamento e segurança biológica.
+                  <h3 className="text-lg font-bold mt-2">Bosque dos Eucaliptos</h3>
+                  <p className="text-xs text-rose-100 mt-1 flex items-start gap-1">
+                    <MapPin className="w-3.5 h-3.5 shrink-0 text-[#E3007B] mt-0.5" />
+                    <span>Av. Andrômeda, 3443 Sobreloja - Sl 01, São José dos Campos - SP</span>
                   </p>
                 </div>
               </div>
@@ -797,9 +841,9 @@ export const Home: React.FC<HomeProps> = ({ isPreview }) => {
                 <div className="flex items-start gap-4 p-4 rounded-2xl bg-white/5 border border-white/10">
                   <MapPin className="w-6 h-6 text-[#E3007B] shrink-0 mt-1" />
                   <div>
-                    <h4 className="font-bold text-white text-sm">Localização em SJC</h4>
-                    <p className="text-slate-300 text-xs mt-0.5">
-                      São José dos Campos - SP (Próximo aos principais bairros da cidade)
+                    <h4 className="font-bold text-white text-sm">Espaço Físico em São José dos Campos</h4>
+                    <p className="text-slate-300 text-xs mt-1 font-medium leading-relaxed">
+                      Av. Andrômeda, 3443 Sobreloja - Sl 01 - Bosque dos Eucaliptos, São José dos Campos - SP, 12233-000
                     </p>
                   </div>
                 </div>
@@ -814,13 +858,20 @@ export const Home: React.FC<HomeProps> = ({ isPreview }) => {
                   </div>
                 </div>
 
-                <div className="flex items-start gap-4 p-4 rounded-2xl bg-white/5 border border-white/10">
-                  <Clock className="w-6 h-6 text-amber-300 shrink-0 mt-1" />
-                  <div>
-                    <h4 className="font-bold text-white text-sm">Horários de Funcionamento</h4>
-                    <p className="text-slate-300 text-xs mt-0.5">
-                      Segunda a Sexta: 08:00 às 19:00 | Sábado: 08:00 às 14:00
-                    </p>
+                <div className="p-4 rounded-2xl bg-white/5 border border-white/10">
+                  <div className="flex items-center gap-2 mb-3">
+                    <Clock className="w-5 h-5 text-amber-300 shrink-0" />
+                    <h4 className="font-bold text-white text-sm">Horário de Funcionamento</h4>
+                  </div>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-4 gap-y-1.5 text-xs text-slate-300">
+                    {openingHours.map((item, idx) => (
+                      <div key={idx} className="flex justify-between items-center py-1 border-b border-white/5">
+                        <span className="font-medium text-slate-400">{item.day}</span>
+                        <span className={`font-bold ${item.status === 'closed' ? 'text-rose-400' : 'text-emerald-400'}`}>
+                          {item.hours}
+                        </span>
+                      </div>
+                    ))}
                   </div>
                 </div>
               </div>
@@ -886,8 +937,8 @@ export const Home: React.FC<HomeProps> = ({ isPreview }) => {
             <p>
               Espaço Taís Marques Esteticista © {new Date().getFullYear()} — São José dos Campos, SP.
             </p>
-            <p className="mt-2 sm:mt-0">
-              Desenvolvido para Alta Conversão & Agendamentos
+            <p className="mt-2 sm:mt-0 font-medium text-slate-400">
+              Desenvolvido por Gusta Sites
             </p>
           </div>
         </div>

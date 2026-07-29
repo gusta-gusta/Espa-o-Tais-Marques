@@ -8,68 +8,74 @@ interface LogoProps {
 
 export const Logo: React.FC<LogoProps> = ({ className = '', size = 'md', variant = 'light' }) => {
   const sizeClasses = {
-    sm: 'h-10',
-    md: 'h-14',
-    lg: 'h-20',
+    sm: 'w-10 h-10',
+    md: 'w-14 h-14',
+    lg: 'w-20 h-20',
   };
 
-  const textColorClass = variant === 'dark' ? 'text-white' : 'text-slate-800';
+  const textColorClass = variant === 'dark' ? 'text-white' : 'text-slate-900';
   const subtextColorClass = variant === 'dark' ? 'text-rose-200' : 'text-slate-500';
 
   return (
     <div className={`flex items-center gap-3 ${className}`}>
-      {/* Emblem SVG mimicking the uploaded logo */}
-      <div className="relative flex-shrink-0 flex items-center justify-center">
+      {/* Emblem SVG matching official uploaded logo */}
+      <div className={`relative flex-shrink-0 ${sizeClasses[size]}`}>
         <svg
-          viewBox="0 0 120 120"
-          className={size === 'sm' ? 'w-10 h-10' : size === 'lg' ? 'w-18 h-18' : 'w-14 h-14'}
+          viewBox="0 0 200 200"
+          className="w-full h-full drop-shadow-sm"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
         >
-          {/* Grey Outer Filled Circle Background */}
-          <circle cx="60" cy="60" r="48" fill="#9CA3AF" fillOpacity="0.85" />
-          
-          {/* Inner Magenta Filled Crescent / Heart Arc */}
+          {/* Outer Swirling Purple Arc Ring */}
           <path
-            d="M 60 12 C 33.49 12 12 33.49 12 60 C 12 86.51 33.49 108 60 108 C 50 96 46 80 46 60 C 46 40 50 24 60 12 Z"
+            d="M 100 8 C 45 8 8 45 8 100 C 8 145 38 182 82 192 C 86 193 90 190 90 186 C 90 182 87 178 83 177 C 46 168 18 137 18 100 C 18 55 55 18 100 18 C 145 18 182 55 182 100 C 182 120 175 138 163 152 C 160 155 160 160 163 163 C 166 166 171 166 174 162 C 189 146 198 124 198 100 C 198 45 155 8 100 8 Z"
+            fill="#7B1FA2"
+          />
+
+          {/* Grey Base Circle */}
+          <circle cx="100" cy="100" r="76" fill="#8E8E93" />
+
+          {/* Pink/Magenta Inner Circle Overlay */}
+          <path
+            d="M 100 24 C 58 24 24 58 24 100 C 24 142 58 176 100 176 C 104 176 108 176 112 175 C 95 158 85 132 85 100 C 85 68 95 42 112 25 C 108 24 104 24 100 24 Z"
             fill="#E3007B"
           />
 
-          {/* Graceful Female Silhouette in White */}
+          {/* Graceful White Silhouette with Raised Arm */}
+          <circle cx="108" cy="52" r="10" fill="#FFFFFF" />
           <path
-            d="M 64 28 C 66.5 28 68.5 26 68.5 23.5 C 68.5 21 66.5 19 64 19 C 61.5 19 59.5 21 59.5 23.5 C 59.5 26 61.5 28 64 28 Z M 72 32 C 68 34 62 35 58 39 C 55 42 53 47 52 52 C 51 57 53 62 55 67 C 57 72 56 78 52 84 C 50 87 47 90 45 92 C 50 92 56 88 60 82 C 64 76 66 70 65 63 C 68 62 72 58 75 52 C 78 46 76 38 72 32 Z"
+            d="M 108 38 C 112 30 120 25 128 22 C 130 21 132 23 131 25 C 126 31 118 36 112 40 Z"
+            fill="#FFFFFF"
+          />
+          <path
+            d="M 104 62 C 96 68 88 78 84 92 C 80 106 82 122 88 136 C 92 146 98 156 106 164 C 112 170 120 174 128 176 C 118 168 112 156 110 142 C 108 128 112 114 120 102 C 128 90 132 78 126 66 C 122 58 114 54 108 52 Z"
             fill="#FFFFFF"
           />
 
-          {/* Purple Outer Swirling Ring */}
-          <circle
-            cx="60"
-            cy="60"
-            r="54"
-            stroke="#7B1FA2"
-            strokeWidth="3.5"
-            strokeDasharray="300"
-            strokeDashoffset="30"
-          />
-
           {/* Purple Botanical Leaves Accent at Bottom Right */}
-          <path
-            d="M 85 82 C 95 82 105 75 105 65 C 95 65 85 72 85 82 Z"
-            fill="#7B1FA2"
-          />
-          <path
-            d="M 92 94 C 102 94 112 87 112 77 C 102 77 92 84 92 94 Z"
-            fill="#9C27B0"
-          />
+          <g transform="translate(130, 135) scale(0.9)">
+            <path
+              d="M 10 30 C 0 10 -20 0 -30 5 C -25 25 -10 35 10 30 Z"
+              fill="#7B1FA2"
+              stroke="#FFFFFF"
+              strokeWidth="2.5"
+            />
+            <path
+              d="M 35 25 C 20 0 -10 -10 -25 -2 C -15 20 10 35 35 25 Z"
+              fill="#7B1FA2"
+              stroke="#FFFFFF"
+              strokeWidth="3"
+            />
+          </g>
         </svg>
       </div>
 
       {/* Typography */}
       <div className="flex flex-col">
-        <span className="text-[11px] sm:text-[12px] font-medium text-slate-500 uppercase tracking-wider font-raleway leading-none mb-0.5">
+        <span className="text-[11px] sm:text-[12px] font-medium text-slate-500 uppercase tracking-widest font-raleway leading-none mb-0.5">
           Espaço
         </span>
-        <span className="font-serif italic font-extrabold text-2xl sm:text-3xl bg-gradient-to-r from-[#E3007B] via-[#C2185B] to-[#7B1FA2] bg-clip-text text-transparent leading-none">
+        <span className="font-serif italic font-black text-2xl sm:text-3xl bg-gradient-to-r from-[#E3007B] via-[#C2185B] to-[#7B1FA2] bg-clip-text text-transparent leading-none py-0.5">
           Taís Marques
         </span>
         <span className={`text-[10px] sm:text-[11px] font-bold uppercase tracking-[0.25em] ${subtextColorClass} font-raleway mt-0.5`}>
@@ -79,3 +85,4 @@ export const Logo: React.FC<LogoProps> = ({ className = '', size = 'md', variant
     </div>
   );
 };
+
