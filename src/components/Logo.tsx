@@ -1,6 +1,6 @@
 import React from 'react';
 // IMPORTANTE: Importando a imagem corretamente no topo
-import logoImagem from '../assets/logo.webp';
+import logoImagem from '../../assets/logo.webp';
 
 interface LogoProps {
   className?: string;
