@@ -9,10 +9,11 @@ interface LogoProps {
 }
 
 export const Logo: React.FC<LogoProps> = ({ className = '', size = 'md', variant = 'light' }) => {
+  // Ajustamos as larguras para um formato retangular longo
   const sizeClasses = {
-    sm: 'w-10 h-10',
-    md: 'w-14 h-14',
-    lg: 'w-20 h-20',
+    sm: 'w-32', // Aprox. 128px de largura
+    md: 'w-48', // Aprox. 192px de largura
+    lg: 'w-64', // Aprox. 256px de largura
   };
 
   const textColorClass = variant === 'dark' ? 'text-white' : 'text-slate-900';
@@ -26,7 +27,7 @@ export const Logo: React.FC<LogoProps> = ({ className = '', size = 'md', variant
         <img 
           src={logoImagem} 
           alt="Logo Taís Marques" 
-          className="w-full h-full object-contain drop-shadow-sm"
+          className="w-full h-auto object-contain drop-shadow-sm"
         />
       </div>
 
