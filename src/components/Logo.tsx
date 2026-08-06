@@ -23,7 +23,7 @@ export const Logo: React.FC<LogoProps> = ({ className = '', size = 'md', variant
         {/* Emblem SVG matching official uploaded logo */}
       <div className={`relative flex-shrink-0 ${sizeClasses[size]}`}>
         <img 
-          src="../assets/logo.webp" 
+          src="../assets/Logo-Tais.webp" 
           alt="Logo Taís Marques" 
           className="w-full h-full object-contain drop-shadow-sm"
         />
