@@ -28,6 +28,10 @@ import {
 import { Logo } from './Logo';
 import fotoTais from '../../assets/Imagem-HERO.webp';
 import fotoTaisPerfil from '../../assets/Tais-Perfil.webp';
+import servicoDesignSobrancelha from '../../assets/servicos/Design-Sobrancelha.webp';
+import servicoMicropigmentacao from '../../assets/servicos/Micropigmentacao.webp';
+import servicoDepilacaoEgipciaFacial from '../../assets/servicos/DepilacaoEgipciaFacial.webp';
+import servicoMassagemRelaxante from '../../assets/servicos/MassagemRelaxante.webp';
 
 interface HomeProps {
   isPreview?: boolean;
@@ -44,12 +48,13 @@ export const Home: React.FC<HomeProps> = ({ isPreview }) => {
   const WHATSAPP_REDIRECT_URL = "https://api.whatsapp.com/send/?phone=5512997491441&text=Ol%C3%A1%20Ta%C3%ADs%2C%20vim%20pelo%20site%20e%20gostaria%20de%20mais%20informa%C3%A7%C3%B5es.&type=phone_number&app_absent=0";
 
   const handleWhatsappClick = (customMessage?: string) => {
-    if (customMessage) {
-      const encodedMsg = encodeURIComponent(customMessage);
-      window.open(`https://api.whatsapp.com/send/?phone=5512997491441&text=${encodedMsg}&type=phone_number&app_absent=0`, '_blank', 'noopener,noreferrer');
-    } else {
-      window.open(WHATSAPP_REDIRECT_URL, '_blank', 'noopener,noreferrer');
-    }
+    const message = customMessage || DEFAULT_MESSAGE;
+    const encodedMsg = encodeURIComponent(message);
+    window.open(
+      `https://api.whatsapp.com/send/?phone=${WHATSAPP_NUMBER}&text=${encodedMsg}&type=phone_number&app_absent=0`,
+      '_blank',
+      'noopener,noreferrer'
+    );
   };
 
   const openingHours = [
@@ -64,63 +69,83 @@ export const Home: React.FC<HomeProps> = ({ isPreview }) => {
 
   const services = [
     {
+      id: 'design-sobrancelhas',
+      title: 'Design de Sobrancelhas',
+      category: 'facial',
+      subtitle: 'Harmonização completa do olhar com naturalidade e precisão',
+      description: 'Realçamos sua beleza respeitando seus traços e valorizando a simetria do rosto.',
+      tag: 'Carro-chefe',
+      benefits: ['Mapeamento facial personalizado', 'Aplicação de henna ou tintura', 'Acabamento preciso na linha'],
+      image: servicoDesignSobrancelha,
+    },
+    {
+      id: 'micropigmentacao',
+      title: 'Micropigmentação',
+      category: 'facial',
+      subtitle: 'Definição duradoura com efeito natural',
+      description: 'Procedimento que corrige falhas e valoriza o olhar com resultado delicado e personalizado.',
+      tag: 'Alta Precisão',
+      benefits: ['Correção de falhas', 'Melhora do formato e definição', 'Harmonização facial', 'Praticidade no dia a dia'],
+      image: servicoMicropigmentacao,
+    },
+    {
+      id: 'depilacao-egipcia-facial',
+      title: 'Depilação Egípcia Facial',
+      category: 'facial',
+      subtitle: 'Precisão e delicadeza para uma pele uniforme',
+      description: 'Técnica com linha que remove até os pelos mais finos desde a raiz.',
+      tag: 'Delicadeza & Precisão',
+      benefits: ['Remoção precisa e completa', 'Ideal para áreas sensíveis', 'Leve esfoliação da pele', 'Resultado duradouro'],
+      image: servicoDepilacaoEgipciaFacial,
+    },
+    {
       id: 'limpeza-pele',
       title: 'Limpeza de Pele',
       category: 'facial',
-      subtitle: 'Tratamentos profundos para saúde cutânea',
-      description: 'Tratamentos profundos com opções de vapor de ozônio e adição de peeling.',
+      subtitle: 'Tratamento profundo para uma pele saudável e renovada',
+      description: 'Foco em remoção de impurezas e revitalização da pele.',
       tag: 'Mais Pedido',
-      benefits: ['Remoção de cravos e impurezas', 'Vapor de ozônio purificante', 'Opção com adição de peeling'],
+      benefits: ['Extração de cravos e impurezas', 'Higienização profunda', 'Vapor de ozônio (opcional)', 'Possibilidade de peeling'],
       image: 'https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?auto=format&fit=crop&w=800&q=80',
+    },
+    {
+      id: 'massagem-relaxante',
+      title: 'Massagem Relaxante',
+      category: 'corporal',
+      subtitle: 'Equilíbrio físico e mental em um só atendimento',
+      description: 'Momento de cuidado que promove bem-estar completo.',
+      tag: 'Relaxamento',
+      benefits: ['Alívio de tensões musculares', 'Redução do estresse e ansiedade', 'Melhora da circulação', 'Relaxamento profundo', 'Melhora na qualidade do sono'],
+      image: servicoMassagemRelaxante,
     },
     {
       id: 'hidratacao-facial',
       title: 'Hidratação Facial',
       category: 'facial',
-      subtitle: 'Nutrição e restauração do brilho natural',
+      subtitle: 'Nutrição e revitalização da pele',
       description: 'Procedimento completo com higienização, esfoliação e máscara hidratante.',
       tag: 'Essencial',
-      benefits: ['Higienização profunda', 'Esfoliação renovadora', 'Máscara super hidratante'],
+      benefits: ['Higienização profunda', 'Esfoliação renovadora', 'Máscara hidratante'],
       image: 'https://images.unsplash.com/photo-1616394584738-fc6e612e71b9?auto=format&fit=crop&w=800&q=80',
     },
     {
       id: 'peeling-diamante',
       title: 'Peeling de Diamante',
       category: 'facial',
-      subtitle: 'Afinamento cutâneo e textura sedosa',
+      subtitle: 'Renovação e textura uniforme da pele',
       description: 'Focado em afinamento cutâneo, higienização e tonificação.',
       tag: 'Pele Renovada',
-      benefits: ['Afinamento da camada córnea', 'Higienização profunda', 'Tonificação celular'],
+      benefits: ['Afinamento da pele', 'Limpeza profunda', 'Estímulo à renovação celular'],
       image: 'https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=800&q=80',
-    },
-    {
-      id: 'design-sobrancelhas',
-      title: 'Design de Sobrancelhas',
-      category: 'facial',
-      subtitle: 'Harmonização do olhar',
-      description: 'Opções que vão do design simples até a aplicação de tintura ou henna.',
-      tag: 'Olhar Marcante',
-      benefits: ['Mapeamento facial', 'Opção design simples', 'Aplicação de tintura ou henna'],
-      image: 'https://images.unsplash.com/photo-1560750588-73207b1ef5b8?auto=format&fit=crop&w=800&q=80',
-    },
-    {
-      id: 'micropigmentacao',
-      title: 'Micropigmentação',
-      category: 'facial',
-      subtitle: 'Definição natural e duradoura',
-      description: 'Procedimentos definitivos ou semidefinitivos para lábios e sobrancelhas.',
-      tag: 'Alta Precisão',
-      benefits: ['Para lábios e sobrancelhas', 'Efeito definitivo ou semidefinitivo', 'Cor e formato personalizados'],
-      image: 'https://images.unsplash.com/photo-1598256989800-fe5f95da9787?auto=format&fit=crop&w=800&q=80',
     },
     {
       id: 'depilacao-facial',
       title: 'Depilação Facial',
       category: 'facial',
-      subtitle: 'Pele lisinha e delicada',
+      subtitle: 'Remoção de pelos com delicadeza',
       description: 'Remoção de pelos no rosto, abrangendo o método egípcio (linha), buço, nariz e opções voltadas para o público masculino.',
-      tag: 'Delicadeza & Precisão',
-      benefits: ['Método egípcio (linha)', 'Buço e nariz', 'Atendimento também ao público masculino'],
+      tag: 'Precisão',
+      benefits: ['Método com linha (egípcio)', 'Buço e regiões específicas', 'Atendimento feminino e masculino'],
       image: 'https://images.unsplash.com/photo-1516975080664-ed2fc6a32937?auto=format&fit=crop&w=800&q=80',
     },
     {
@@ -130,27 +155,27 @@ export const Home: React.FC<HomeProps> = ({ isPreview }) => {
       subtitle: 'Cuidado completo para o corpo',
       description: 'Remoção de pelos em diversas áreas (pernas completas ou meia perna, axilas, braços, áreas íntimas, glúteos e flancos).',
       tag: 'Suavidade Garantida',
-      benefits: ['Pernas completas ou meia perna', 'Axilas e braços', 'Áreas íntimas, glúteos e flancos'],
+      benefits: ['Pernas (completa ou parcial)', 'Axilas e braços', 'Áreas íntimas e outras regiões'],
       image: 'https://images.unsplash.com/photo-1544161515-4ab6ce6db874?auto=format&fit=crop&w=800&q=80',
     },
     {
       id: 'drenagem-linfatica',
       title: 'Drenagem Linfática',
       category: 'corporal',
-      subtitle: 'Alívio do inchaço e desintoxicação',
+      subtitle: 'Redução de inchaço e retenção de líquidos',
       description: 'Tratamentos corporais para retenção de líquidos.',
       tag: 'Desinchamento Imediato',
-      benefits: ['Eliminação de líquidos retidos', 'Melhora da circulação', ' Sensação leveza corporal'],
+      benefits: ['Estímulo da circulação', 'Eliminação de líquidos', 'Sensação de leveza imediata'],
       image: 'https://images.unsplash.com/photo-1519823551278-64ac92734fb1?auto=format&fit=crop&w=800&q=80',
     },
     {
       id: 'botox-facial',
       title: 'Botox Facial',
       category: 'facial',
-      subtitle: 'Rejuvenescimento expressivo',
+      subtitle: 'Rejuvenescimento e suavização de expressão',
       description: 'Aplicação completa (full face) para rejuvenescimento.',
       tag: 'Rejuvenescimento',
-      benefits: ['Aplicação full face', 'Suavização de rugas de expressão', 'Aspecto jovem e descansado'],
+      benefits: ['Aplicação facial completa', 'Redução de rugas', 'Aparência mais jovem e descansada'],
       image: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=800&q=80',
     },
   ];
@@ -596,7 +621,6 @@ export const Home: React.FC<HomeProps> = ({ isPreview }) => {
             {filteredServices.map((service) => (
               <div
                 key={service.id}
-                onClick={() => handleWhatsappClick(`Olá, gostaria de saber mais informações sobre o serviço: ${service.title}`)}
                 className="bg-white rounded-3xl overflow-hidden border border-rose-100 shadow-md hover:shadow-xl hover:border-rose-300 transition-all duration-300 flex flex-col justify-between group cursor-pointer"
               >
                 <div>
@@ -639,10 +663,7 @@ export const Home: React.FC<HomeProps> = ({ isPreview }) => {
                 {/* Card CTA Footer */}
                 <div className="p-6 pt-0">
                   <button
-                    onClick={(e) => {
-                      e.stopPropagation();
-                      handleWhatsappClick(`Olá, gostaria de agendar o serviço: ${service.title}`);
-                    }}
+                    onClick={() => handleWhatsappClick(`Olá! Vim pelo site e sobre o serviço de ${service.title}, gostaria de agendar.`)}
                     className="w-full py-3 bg-rose-50 group-hover:bg-gradient-to-r group-hover:from-[#E3007B] group-hover:to-[#7B1FA2] text-[#E3007B] group-hover:text-white font-bold rounded-xl transition-all duration-300 flex items-center justify-center gap-2 text-xs border border-rose-200 group-hover:border-transparent cursor-pointer"
                   >
                     <MessageCircle className="w-4 h-4 fill-current" />
