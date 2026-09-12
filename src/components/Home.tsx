@@ -26,7 +26,8 @@ import {
   Search
 } from 'lucide-react';
 import { Logo } from './Logo';
-import fotoTais from '../../assets/Tais-Perfil.webp';
+import fotoTais from '../../assets/Imagem-HERO.webp';
+import fotoTaisPerfil from '../../assets/Tais-Perfil.webp';
 
 interface HomeProps {
   isPreview?: boolean;
@@ -356,12 +357,12 @@ export const Home: React.FC<HomeProps> = ({ isPreview }) => {
 
               {/* Main Headline */}
               <h1 className="text-3xl sm:text-5xl lg:text-5xl font-extrabold text-slate-900 tracking-tight leading-tight sm:leading-tight">
-                Sua Pele Mais Radiante e Saudável em <span className="bg-gradient-to-r from-[#E3007B] via-[#C2185B] to-[#7B1FA2] bg-clip-text text-transparent">São José dos Campos</span>
+                Seu lugar de Cuidado, beleza e bem-estar em um espaço  <span className="bg-gradient-to-r from-[#E3007B] via-[#C2185B] to-[#7B1FA2] bg-clip-text text-transparent"> pensado para você.</span>
               </h1>
 
               {/* Subtitle */}
               <p className="mt-4 text-base sm:text-lg text-slate-600 font-normal leading-relaxed max-w-2xl mx-auto lg:mx-0">
-                A <strong>Esteticista Taís Marques</strong> combina ciência estética, tecnologia avançada e protocolos altamente personalizados para potencializar sua beleza natural e devolver sua autoconfiança.
+                Um ambiente acolhedor, onde cada atendimento é realizado com atenção, carinho e respeito à sua individualidade.
               </p>
 
               {/* Key Highlights */}
@@ -430,9 +431,6 @@ export const Home: React.FC<HomeProps> = ({ isPreview }) => {
                         <Sparkles className="w-3 h-3 text-amber-200" />
                         <span>Espaço Taís Marques</span>
                       </div>
-                      <h3 className="text-xl font-extrabold text-white leading-tight">
-                        Taís Marques
-                      </h3>
                       <p className="text-xs text-rose-200 font-medium">
                         Esteticista Especialista em Saúde da Pele & Corpo em SJC
                       </p>
@@ -475,7 +473,7 @@ export const Home: React.FC<HomeProps> = ({ isPreview }) => {
             <div className="lg:col-span-5 order-2 lg:order-1">
               <div className="relative rounded-3xl overflow-hidden border-2 border-rose-200 shadow-2xl bg-rose-50">
                 <img 
-                  src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&w=800&q=80" 
+                  src={fotoTaisPerfil} 
                   alt="Espaço Físico Taís Marques em São José dos Campos"
                   className="w-full h-[450px] object-cover"
                 />
@@ -483,9 +481,9 @@ export const Home: React.FC<HomeProps> = ({ isPreview }) => {
                 
                 <div className="absolute bottom-6 left-6 right-6 text-white">
                   <span className="text-xs font-bold uppercase tracking-wider text-rose-300 bg-black/50 px-3 py-1 rounded-full backdrop-blur-md">
-                    Espaço Físico em SJC
+                    Taís Marques
                   </span>
-                  <h3 className="text-lg font-bold mt-2">Bosque dos Eucaliptos</h3>
+                  <h3 className="text-lg font-bold mt-2">Sobre mim</h3>
                   <p className="text-xs text-rose-100 mt-1 flex items-start gap-1">
                     <MapPin className="w-3.5 h-3.5 shrink-0 text-[#E3007B] mt-0.5" />
                     <span>Av. Andrômeda, 3443 Sobreloja - Sl 01, São José dos Campos - SP</span>
@@ -505,11 +503,11 @@ export const Home: React.FC<HomeProps> = ({ isPreview }) => {
               </h2>
 
               <p className="text-base text-slate-600 mt-4 leading-relaxed">
-                Atuando com dedicação e excelência em <strong>São José dos Campos - SP</strong>, sou apaixonada por transformar vidas através do cuidado estético ético e personalizado.
+                Acredito que beleza também é uma forma de cuidado. 
               </p>
 
               <p className="text-sm text-slate-600 mt-3 leading-relaxed">
-                No <strong>Espaço Taís Marques</strong>, cada cliente é única. Não acredito em receitas prontas: antes de qualquer procedimento, realizo uma avaliação minuciosa da saúde da sua pele para indicar exatamente o que trará os melhores resultados com segurança e conforto.
+                Abri o Espaço Taís Marques para ser mais do que um lugar para realizar procedimentos. Quero que seja um espaço onde você possa parar por alguns instantes, se cuidar e se sentir acolhida.  Gosto de olhar para cada mulher de forma única, respeitando sua beleza, seu estilo e aquilo que faz sentido para ela.  Porque, para mim, cuidar da beleza é também lembrar que você merece um tempo para você.  Seja bem-vinda ao meu espaço. Será um prazer cuidar de você.
               </p>
 
               <div className="mt-6 grid grid-cols-2 sm:grid-cols-3 gap-4 border-y border-rose-100 py-6">
