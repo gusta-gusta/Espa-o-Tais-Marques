@@ -32,6 +32,12 @@ import servicoDesignSobrancelha from '../../assets/servicos/Design-Sobrancelha.w
 import servicoMicropigmentacao from '../../assets/servicos/Micropigmentacao.webp';
 import servicoDepilacaoEgipciaFacial from '../../assets/servicos/DepilacaoEgipciaFacial.webp';
 import servicoMassagemRelaxante from '../../assets/servicos/MassagemRelaxante.webp';
+import servicoBotox from '../../assets/servicos/botox.webp';
+import servicoPeelingDiamante from '../../assets/servicos/peelingDiamante.webp';
+import servicoRevitalizacaoFacial from '../../assets/servicos/revitalizacaoFacial.webp';
+
+
+
 
 interface HomeProps {
   isPreview?: boolean;
@@ -122,21 +128,27 @@ export const Home: React.FC<HomeProps> = ({ isPreview }) => {
       id: 'hidratacao-facial',
       title: 'Hidratação Facial',
       category: 'facial',
-      subtitle: 'Nutrição e revitalização da pele',
-      description: 'Procedimento completo com higienização, esfoliação e máscara hidratante.',
+      subtitle: 'Revitalização e hidratação da pele',
+      description: 'Um cuidado que ajuda a devolver viço, hidratação e luminosidade à pele.',
       tag: 'Essencial',
-      benefits: ['Higienização profunda', 'Esfoliação renovadora', 'Máscara hidratante'],
-      image: 'https://images.unsplash.com/photo-1616394584738-fc6e612e71b9?auto=format&fit=crop&w=800&q=80',
+      benefits: [
+        'Hidrata e nutre a pele',
+        'Melhora a luminosidade',
+        'Suaviza o aspecto de cansaço',
+        'Ajuda na renovação da pele',
+        'Deixa a pele mais macia e viçosa'
+      ],
+      image: servicoRevitalizacaoFacial,
     },
     {
       id: 'peeling-diamante',
       title: 'Peeling de Diamante',
       category: 'facial',
-      subtitle: 'Renovação e textura uniforme da pele',
-      description: 'Focado em afinamento cutâneo, higienização e tonificação.',
+      subtitle: 'Uma esfoliação suave que promove a renovação da pele',
+      description: 'Deixando-a mais lisinha, uniforme e iluminada.',
       tag: 'Pele Renovada',
-      benefits: ['Afinamento da pele', 'Limpeza profunda', 'Estímulo à renovação celular'],
-      image: 'https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=800&q=80',
+      benefits: ['Remove células mortas', 'Estimula a renovação celular', 'Melhora a textura da pele', 'Ajuda a suavizar manchas superficiais', 'Desobstrui os poros', 'Deixa a pele mais macia e luminosa', 'Potencializa a absorção de ativos'],
+      image: servicoPeelingDiamante,
     },
     {
       id: 'depilacao-facial',
@@ -170,13 +182,13 @@ export const Home: React.FC<HomeProps> = ({ isPreview }) => {
     },
     {
       id: 'botox-facial',
-      title: 'Botox Facial',
+      title: 'Botoxl',
       category: 'facial',
-      subtitle: 'Rejuvenescimento e suavização de expressão',
-      description: 'Aplicação completa (full face) para rejuvenescimento.',
+      subtitle: 'A toxina botulínica ajuda a suavizar as marcas de expressão',
+      description: 'Proporcionando uma aparência mais leve e descansada.',
       tag: 'Rejuvenescimento',
-      benefits: ['Aplicação facial completa', 'Redução de rugas', 'Aparência mais jovem e descansada'],
-      image: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=800&q=80',
+      benefits: ['Suaviza linhas de expressão',  'Ameniza rugas dinâmicas', 'Ajuda a prevenir marcas mais profundas', 'Deixa a aparência mais descansada', 'Mantém a naturalidade quando bem aplicado'],
+      image: servicoBotox,
     },
   ];
 
