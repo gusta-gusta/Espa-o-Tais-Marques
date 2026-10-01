@@ -472,9 +472,9 @@ export const Home: React.FC<HomeProps> = ({ isPreview }) => {
                         <Sparkles className="w-3 h-3 text-amber-200" />
                         <span>Espaço Taís Marques</span>
                       </div>
-                      <p className="text-xs text-rose-200 font-medium">
-                        <MapPin className="w-3.5 h-3.5 shrink-0 text-[#E3007B] mt-0.5" />
+                      <p className="text-xs text-rose-100 mt-1 flex items-start gap-1">
                         <span>Lugar de beleza, bem estar e acolhimento</span>
+                        <MapPin className="w-3.5 h-3.5 shrink-0 text-[#E3007B] mt-0.5" />
                       </p>
                     </div>
                   </div>
