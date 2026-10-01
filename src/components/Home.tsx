@@ -403,25 +403,24 @@ export const Home: React.FC<HomeProps> = ({ isPreview }) => {
               </p>
 
               {/* Key Highlights */}
-              <div className="mt-6 flex flex-wrap justify-center lg:justify-start gap-3 text-xs sm:text-sm font-medium text-slate-700">
-                <div className="flex items-center gap-1.5 bg-white px-3 py-1.5 rounded-lg border border-rose-100 shadow-xs">
-                  <CheckCircle2 className="w-4 h-4 text-[#E3007B]" />
-                  <span>Atendimento Humanizado</span>
-                </div>
-                <div className="flex items-center gap-1.5 bg-white px-3 py-1.5 rounded-lg border border-rose-100 shadow-xs">
-                  <CheckCircle2 className="w-4 h-4 text-[#E3007B]" />
-                  <span>Produtos de Grau Médico</span>
-                </div>
-                <div className="flex items-center gap-1.5 bg-white px-3 py-1.5 rounded-lg border border-rose-100 shadow-xs">
-                  <CheckCircle2 className="w-4 h-4 text-[#E3007B]" />
-                  <span>Espaço Acolhedor em SJC</span>
-                </div>
+            <div className="mt-6 flex flex-wrap justify-center lg:justify-start gap-3 text-xs sm:text-sm font-medium text-slate-700">
+              <div className="flex items-center gap-1.5 bg-white px-3 py-1.5 rounded-lg border border-rose-100 shadow-xs">
+                <CheckCircle2 className="w-4 h-4 text-[#E3007B]" />
+                <span>Atendimento Humanizado</span>
               </div>
               <div className="flex items-center gap-1.5 bg-white px-3 py-1.5 rounded-lg border border-rose-100 shadow-xs">
-                  <CheckCircle2 className="w-4 h-4 text-[#E3007B]" />
-                  <span>Produtos de Linha Profissional</span>
-                </div>
+                <CheckCircle2 className="w-4 h-4 text-[#E3007B]" />
+                <span>Produtos de Grau Médico</span>
               </div>
+              <div className="flex items-center gap-1.5 bg-white px-3 py-1.5 rounded-lg border border-rose-100 shadow-xs">
+                <CheckCircle2 className="w-4 h-4 text-[#E3007B]" />
+                <span>Espaço Acolhedor em SJC</span>
+              </div>
+              <div className="flex items-center gap-1.5 bg-white px-3 py-1.5 rounded-lg border border-rose-100 shadow-xs">
+                <CheckCircle2 className="w-4 h-4 text-[#E3007B]" />
+                <span>Produtos de Linha Profissional</span>
+              </div>
+            </div>
 
               {/* Hero Call to Action Buttons */}
               <div className="mt-8 flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
