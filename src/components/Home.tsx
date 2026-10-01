@@ -35,7 +35,7 @@ import servicoMassagemRelaxante from '../../assets/servicos/MassagemRelaxante.we
 import servicoBotox from '../../assets/servicos/botox.webp';
 import servicoPeelingDiamante from '../../assets/servicos/peelingDiamante.webp';
 import servicoRevitalizacaoFacial from '../../assets/servicos/revitalizacaoFacial.webp';
-
+import servicoLimpezaPele from '../../assets/servicos/limpezaPele.webp';
 
 
 
@@ -106,13 +106,13 @@ export const Home: React.FC<HomeProps> = ({ isPreview }) => {
     },
     {
       id: 'limpeza-pele',
-      title: 'Limpeza de Pele',
+      title: 'Limpeza de Pele com Vapor de Ozônio',
       category: 'facial',
-      subtitle: 'Tratamento profundo para uma pele saudável e renovada',
-      description: 'Foco em remoção de impurezas e revitalização da pele.',
+      subtitle: 'Cuidado que remove impurezas',
+      description: 'Deixa a pele com uma sensação de frescor e maciez.',
       tag: 'Mais Pedido',
-      benefits: ['Extração de cravos e impurezas', 'Higienização profunda', 'Vapor de ozônio (opcional)', 'Possibilidade de peeling'],
-      image: 'https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?auto=format&fit=crop&w=800&q=80',
+      benefits: ['O vapor auxilia no amolecimento dos cravos.', 'Facilita a extração.', 'Remove impurezas e células mortas.', 'Deixa a pele mais limpa e suave e com aspecto saudável'],
+      image: servicoLimpezaPele,
     },
     {
       id: 'massagem-relaxante',
@@ -417,6 +417,11 @@ export const Home: React.FC<HomeProps> = ({ isPreview }) => {
                   <span>Espaço Acolhedor em SJC</span>
                 </div>
               </div>
+              <div className="flex items-center gap-1.5 bg-white px-3 py-1.5 rounded-lg border border-rose-100 shadow-xs">
+                  <CheckCircle2 className="w-4 h-4 text-[#E3007B]" />
+                  <span>Produtos de Linha Profissional</span>
+                </div>
+              </div>
 
               {/* Hero Call to Action Buttons */}
               <div className="mt-8 flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
@@ -469,7 +474,7 @@ export const Home: React.FC<HomeProps> = ({ isPreview }) => {
                         <span>Espaço Taís Marques</span>
                       </div>
                       <p className="text-xs text-rose-200 font-medium">
-                        Esteticista Especialista em Saúde da Pele & Corpo em SJC
+                        Lugar de beleza, bem estar e acolhimento
                       </p>
                     </div>
                   </div>
@@ -523,7 +528,7 @@ export const Home: React.FC<HomeProps> = ({ isPreview }) => {
                   <h3 className="text-lg font-bold mt-2">Sobre mim</h3>
                   <p className="text-xs text-rose-100 mt-1 flex items-start gap-1">
                     <MapPin className="w-3.5 h-3.5 shrink-0 text-[#E3007B] mt-0.5" />
-                    <span>Av. Andrômeda, 3443 Sobreloja - Sl 01, São José dos Campos - SP</span>
+                    <span>Esteticista Especializada em Sobrancelhas e Embelezamento do Olhar</span>
                   </p>
                 </div>
               </div>
