@@ -473,7 +473,8 @@ export const Home: React.FC<HomeProps> = ({ isPreview }) => {
                         <span>Espaço Taís Marques</span>
                       </div>
                       <p className="text-xs text-rose-200 font-medium">
-                        Lugar de beleza, bem estar e acolhimento
+                        <MapPin className="w-3.5 h-3.5 shrink-0 text-[#E3007B] mt-0.5" />
+                        <span>Lugar de beleza, bem estar e acolhimento</span>
                       </p>
                     </div>
                   </div>
@@ -526,7 +527,6 @@ export const Home: React.FC<HomeProps> = ({ isPreview }) => {
                   </span>
                   <h3 className="text-lg font-bold mt-2">Sobre mim</h3>
                   <p className="text-xs text-rose-100 mt-1 flex items-start gap-1">
-                    <MapPin className="w-3.5 h-3.5 shrink-0 text-[#E3007B] mt-0.5" />
                     <span>Esteticista Especializada em Sobrancelhas e Embelezamento do Olhar</span>
                   </p>
                 </div>
