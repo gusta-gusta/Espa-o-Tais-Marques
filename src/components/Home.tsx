@@ -36,6 +36,13 @@ import servicoBotox from '../../assets/servicos/botox.webp';
 import servicoPeelingDiamante from '../../assets/servicos/peelingDiamante.webp';
 import servicoRevitalizacaoFacial from '../../assets/servicos/revitalizacaoFacial.webp';
 import servicoLimpezaPele from '../../assets/servicos/limpezaPele.webp';
+import servicoBanhoEmGel from '../../assets/servicos/servicoBanhoEmGel.webp';
+import servicoManicureTradicional from '../../assets/servicos/servicoManicureTradicional.jpeg';
+import servicoAlongamentoEmGel from '../../assets/servicos/servicoAlongamentoEmGel.jpeg';
+import servicoPedicureTradicional from '../../assets/servicos/servicoPedicureTradicional.jpeg';
+import servicoAlongamentoDeCilios from '../../assets/servicos/servicoAlongamentoDeCilios.png';
+import imagemDepoisAlongamentoDeCilios from '../../assets/resultados/imagemDepoisAlongamentoDeCilios.png';
+import imagemAntesAlongamentoDeCilios from '../../assets/resultados/imagemAntesAlongamentoDeCilios.png';
 
 
 
@@ -180,9 +187,71 @@ export const Home: React.FC<HomeProps> = ({ isPreview }) => {
       benefits: ['Estímulo da circulação', 'Eliminação de líquidos', 'Sensação de leveza imediata'],
       image: 'https://images.unsplash.com/photo-1519823551278-64ac92734fb1?auto=format&fit=crop&w=800&q=80',
     },
+    
+    {
+      id: 'Banho-em-gel',
+      title: 'Banho em gel',
+      category: 'corporal',
+      subtitle: 'Valorizar suas unhas naturais',
+      description: 'Beleza e um acabamento delicado.',
+      tag: 'Brilho dourado',
+      benefits: ['Maior resistência', 'Formato e comprimento personalizados', 'Variedade de cores e decorações'],
+      image: servicoBanhoEmGel,
+    },
+
+    {
+      id: 'Manicure-tradicional',
+      title: 'Manicure tradicional',
+      category: 'corporal',
+      subtitle: 'cuidado e beleza para valorizar suas mãos',
+      description: 'Beleza e um acabamento delicado.',
+      tag: 'Delicado',
+      benefits: ['Unhas lixadas e bem cuidadas', 'Esmaltação na sua cor favorita', 'Acabamento delicado e bonito', 'Um momento de autocuidado'],
+      image: servicoManicureTradicional,
+    },
+
+        {
+      id: 'Alongamento-em-gel',
+      title: 'Alongamento em gel',
+      category: 'corporal',
+      subtitle: 'Unhas mais longas',
+      description: 'Elegantes e com acabamento personalizado',
+      tag: '⁠Maior resistência',
+      benefits: ['Comprimento e formato à sua escolha.', 'Maior resistência, com os cuidados adequados', 'Acabamento uniforme e brilho', '⁠Beleza duradoura com manutenção regular'],
+      image: servicoAlongamentoEmGel,
+    },
+
+        {
+      id: 'Pedicure-tradicional',
+      title: 'Pedicure tradicional',
+      category: 'corporal',
+      subtitle: 'Cuidado e beleza',
+      description: 'Seus pés bem cuidados e as unhas com acabamento impecável.',
+      tag: 'Acabamento impecável.',
+      benefits: ['Unhas cortadas e lixadas', 'Esmaltação com cor e brilho', 'Aparência bonita e bem cuidada', 'Um momento de cuidado e bem-estar'],
+      image: servicoPedicureTradicional,
+    },
+
+   {
+      id: 'Alongamento-de-cílios',
+      title: 'Alongamento de Cílios',
+      category: 'cilios',
+      subtitle: 'Realce seu olhar com charme, volume e praticidade.',
+      description: 'Um efeito personalizado que valoriza a beleza dos seus olhos e facilita sua rotina de beleza.',
+      tag: 'Alongamento de Cílios',
+      benefits: 
+        [
+          'Mais volume e comprimento',
+          'Curvatura que valoriza o olhar',
+          'Efeito personalizado ao seu estilo',
+          'Mais praticidade na rotina de beleza'
+        ],
+      image: servicoAlongamentoDeCilios,
+    },
+
     {
       id: 'botox-facial',
-      title: 'Botoxl',
+      title: 'Botox',
       category: 'facial',
       subtitle: 'A toxina botulínica ajuda a suavizar as marcas de expressão',
       description: 'Proporcionando uma aparência mais leve e descansada.',
@@ -194,12 +263,12 @@ export const Home: React.FC<HomeProps> = ({ isPreview }) => {
 
   const results = [
     {
-      title: 'Limpeza de Pele & Controle de Oleosidade',
-      description: 'Cliente com acne e poros obstruídos após 1 sessão do protocolo fototerápico.',
+      title: 'Alongamento de Cílios',
+      description: 'Realce do olhar com fios alongados, proporcionando mais volume, definição e um resultado delicado e natural.',
       location: 'São José dos Campos - SP',
-      tag: 'Facial',
-      beforeImg: 'https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?auto=format&fit=crop&w=600&q=80',
-      afterImg: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=600&q=80',
+      tag: 'Cílios',
+      beforeImg: imagemAntesAlongamentoDeCilios,
+      afterImg: imagemDepoisAlongamentoDeCilios,
     },
     {
       title: 'Drenagem Linfática & Redução de Inchaço',
