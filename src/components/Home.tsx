@@ -157,7 +157,11 @@ export const Home: React.FC<HomeProps> = ({ isPreview }) => {
       benefits: ['Remove células mortas', 'Estimula a renovação celular', 'Melhora a textura da pele', 'Ajuda a suavizar manchas superficiais', 'Desobstrui os poros', 'Deixa a pele mais macia e luminosa', 'Potencializa a absorção de ativos'],
       image: servicoPeelingDiamante,
     },
-    {
+
+/*     CARDS AINDA NÃO ALTERADOS */
+
+
+   /*  {
       id: 'depilacao-facial',
       title: 'Depilação Facial',
       category: 'facial',
@@ -186,7 +190,7 @@ export const Home: React.FC<HomeProps> = ({ isPreview }) => {
       tag: 'Desinchamento Imediato',
       benefits: ['Estímulo da circulação', 'Eliminação de líquidos', 'Sensação de leveza imediata'],
       image: 'https://images.unsplash.com/photo-1519823551278-64ac92734fb1?auto=format&fit=crop&w=800&q=80',
-    },
+    }, */
     
     {
       id: 'Banho-em-gel',
