@@ -236,7 +236,9 @@ export const Home: React.FC<HomeProps> = ({ isPreview }) => {
       image: servicoPedicureTradicional,
     },
 
-   {
+/*     Profissional Não atende esse Serviço no momento */
+
+/*     {
       id: 'Alongamento-de-cílios',
       title: 'Alongamento de Cílios',
       category: 'facial',
@@ -251,7 +253,7 @@ export const Home: React.FC<HomeProps> = ({ isPreview }) => {
           'Mais praticidade na rotina de beleza'
         ],
       image: servicoAlongamentoDeCilios,
-    },
+    }, */
 
     {
       id: 'botox-facial',
