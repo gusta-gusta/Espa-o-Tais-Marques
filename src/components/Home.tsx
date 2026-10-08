@@ -235,7 +235,7 @@ export const Home: React.FC<HomeProps> = ({ isPreview }) => {
    {
       id: 'Alongamento-de-cílios',
       title: 'Alongamento de Cílios',
-      category: 'cilios',
+      category: 'facial',
       subtitle: 'Realce seu olhar com charme, volume e praticidade.',
       description: 'Um efeito personalizado que valoriza a beleza dos seus olhos e facilita sua rotina de beleza.',
       tag: 'Alongamento de Cílios',
